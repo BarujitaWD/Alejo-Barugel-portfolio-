@@ -12,7 +12,9 @@
     <div class="grid-background"></div>
     
     <nav class="reveal" style="--d: 0ms;">
-        <div class="nav-links"><a href="index.html">Alejo Max Barugel</a></div>
+        <div class="nav-links">
+            <a href="index.html">Alejo Max Barugel</a>
+        </div>
         <div class="nav-links">
             <a href="#proyectos">Proyectos</a>
             <a href="#tecnologias">Tecnologías</a>
@@ -33,7 +35,6 @@
                 <a href="https://www.linkedin.com/in/alejo-barugel-a94419276" target="_blank" class="icon-circle" title="LinkedIn">
                     <i class="fa-brands fa-linkedin-in"></i>
                 </a>
-                
             </div>
         </aside>
 
@@ -56,27 +57,32 @@
                 </div>
             </section>
 
-
-
-
-<section id="proyectos" class="card reveal" style="--d: 400ms;">
+            <section id="proyectos" class="card reveal" style="--d: 300ms;">
                 <h2>Proyectos</h2>
-                <p style="color: var(--text-secondary); margin-bottom: 2rem;">A continuación, presento los proyectos más significativos de mi carrera. Cada uno representa un paso adelante en mi dominio de nuevas tecnologías y la creación de software robusto:</p>
+                <p>A continuación, presento los proyectos más significativos de mi carrera. Cada uno representa un paso adelante en mi dominio de nuevas tecnologías:</p>
                 
-                <a href="elijuegos.html" class="projects-link"><div class="tech-grid">
-                    <div class="tech-box">
-                    	<span class="badge">FullStack</span>
-                        <h3 style="color: #E5E5E5;">Elijuegos</h3>
-                        <p>Blog de noticias,guias y curiosidades del mundo de los videojuegos.</p>
-                         <div class="project-img"><img src="assets/img/elijuegos-screen-1.png" class="img-pro"></div><br>
-                         <br>
-                         <span class="badge">PHP</span> <span class="badge">HTML</span> <span class="badge">CSS</span>
-                    </div></a>
+                <a href="elijuegos.html" class="projects-link">
+                    <div class="tech-grid">
+                        <div class="tech-box">
+                            <span class="badge">FullStack</span>
+                            <h3 style="color: #E5E5E5;">Elijuegos</h3>
+                            <p>Blog de noticias, guías y curiosidades del mundo de los videojuegos.</p>
+                            <div class="project-img">
+                                <img src="assets/img/elijuegos-screen-1.png" class="img-pro" alt="Elijuegos">
+                            </div>
+                            <div style="margin-top: 15px;">
+                                <span class="badge">PHP</span> 
+                                <span class="badge">HTML</span> 
+                                <span class="badge">CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </section>
 
             <section id="tecnologias" class="card reveal" style="--d: 400ms;">
                 <h2>Tecnologías</h2>
-                <p style="color: var(--text-secondary); margin-bottom: 2rem;">En mi viaje por el mundo del desarrollo, he cultivado experiencia y habilidades en una variedad de tecnologías. Mi stack tecnológico incluye:</p>
+                <p>En mi viaje por el mundo del desarrollo, he cultivado habilidades en:</p>
                 
                 <div class="tech-grid">
                     <div class="tech-box">
@@ -92,9 +98,8 @@
                         <h4 style="color: #E5E5E5;">Backend</h4>
                         <div class="tech-icons">
                             <div class="tech-item"><i class="fa-brands fa-php" style="color: #777bb4;"></i><span>PHP</span></div>
-                          <div class="tech-item"><i class="fa-solid fa-database" style="color: #00758f;"></i><span>MySQL</span></div>  
-                        <div class="tech-item"><i class="fa-brands fa-java" style="color: #ed8b00;"></i><span>Java</span></div>
-                        
+                            <div class="tech-item"><i class="fa-solid fa-database" style="color: #00758f;"></i><span>MySQL</span></div>  
+                            <div class="tech-item"><i class="fa-brands fa-java" style="color: #ed8b00;"></i><span>Java</span></div>
                         </div>
                     </div>
 
@@ -106,35 +111,59 @@
                             <div class="tech-item"><i class="fa-solid fa-code"></i><span>VSCode</span></div>
                             <div class="tech-item"><i class="fa-solid fa-circle-nodes" style="color: #ff6d5a;"></i><span>n8n</span></div>
                             <div class="tech-item"><i class="fa-solid fa-robot"></i><span>OpenAI</span></div>
-                            
                         </div>
                     </div>
 
                     <div class="tech-box">
                         <h4 style="color: #FF9F43;">Aprendiendo</h4>
                         <div class="tech-icons">
-                        	<div class="tech-item"><i class="fa-brands fa-python" style="color: #3776AB;"></i><span>Python</span></div>
-                        	<div class="tech-item"><i class="fa-brands fa-react" style="color: #61DAFB;"></i><span>ReactJS</span></div>
+                            <div class="tech-item"><i class="fa-brands fa-python" style="color: #3776AB;"></i><span>Python</span></div>
+                            <div class="tech-item"><i class="fa-brands fa-react" style="color: #61DAFB;"></i><span>ReactJS</span></div>
                         </div>
                     </div>
                 </div>
             </section>
 
+            <section id="estudios" class="card reveal" style="--d: 500ms;">
+                <h2>Estudios</h2>
+                <p>Trayectoria Académica y Certificaciones</p>
+                <div class="slider-wrapper">
+                    <input type="radio" name="foto" id="img1" checked>
+                    <input type="radio" name="foto" id="img2">
+
+                    <div class="slider-main">
+                        <div class="slides-container">
+                            <div class="img-title">
+                                <a href="assets/pdf/front-newton.pdf"><img src="assets/img/front.png" alt="Certificado Frontend"></a>
+                            </div>
+                            <div class="img-title">
+                                <a href="assets/pdf/back-newton.pdf"><img src="assets/img/back.png" alt="Certificado Backend"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slider-dots">
+                        <label for="img1"></label>
+                        <label for="img2"></label>
+                    </div>
+                </div>
+            </section>
 
             <section id="contacto" class="card reveal" style="--d: 600ms;">
                 <h2>Contáctame</h2>
-                <p>Siempre estoy abierto a charlar sobre nuevas tecnologías y cómo puedo aportar valor a tu equipo. Si buscas a alguien con ganas de aprender y construir soluciones robustas, ¡hablemos!</p>
+                <p>Si buscas a alguien con ganas de aprender y construir soluciones robustas, ¡hablemos!</p>
                 <button onclick="copiarTexto(this, 'alejobaruja@gmail.com')" class="btn-cv">
-  				<i class="fa-regular fa-copy"></i>
-  				<span>alejobaruja@gmail.com</span>
-				</button>
-				<button onclick="copiarTexto(this, '+542616943819')" class="btn-cv">
-  				<i class="fa-regular fa-copy"></i>
-  				<span>+542616943819</span>
-				</button>
+                    <i class="fa-regular fa-copy"></i>
+                    <span>alejobaruja@gmail.com</span>
+                </button>
+                <button onclick="copiarTexto(this, '+542616943819')" class="btn-cv">
+                    <i class="fa-regular fa-copy"></i>
+                    <span>+542616943819</span>
+                </button>
             </section>
         </div>
     </main>
+
     <script src="assets/js/script.js"></script>
 </body>
 </html>
