@@ -1,4 +1,65 @@
+function renderProyectos() {
+    const container = document.getElementById('proyectos-list');
+    if (!container || typeof PROYECTOS === 'undefined') return;
+
+    container.innerHTML = PROYECTOS.map(p => `
+        <a href="${p.link}" class="projects-link">
+            <div class="tech-grid">
+                <div class="tech-box">
+                    ${p.badgeTipo ? `<span class="badge">${p.badgeTipo}</span>` : ''}
+                    <h3 style="color: #E5E5E5;">${p.titulo}</h3>
+                    <p>${p.descripcion}</p>
+                    <div class="project-img">
+                        <img src="${p.imagen}" class="img-pro" alt="${p.titulo}">
+                    </div>
+                    <div style="margin-top: 30px;">
+                        ${(p.tecnologias || []).map(t => `<span class="badge">${t}</span>`).join(' ')}
+                    </div>
+                </div>
+            </div>
+        </a>
+    `).join('');
+}
+
+function renderCertificados() {
+    const container = document.getElementById('estudios-slider');
+    if (!container || typeof CERTIFICADOS === 'undefined' || CERTIFICADOS.length === 0) return;
+
+    const slideWidth = 100 / CERTIFICADOS.length;
+
+    const slidesHTML = CERTIFICADOS.map(c => `
+        <div class="img-title" style="width: ${slideWidth}%;">
+            <a href="${c.pdf}" target="_blank"><img src="${c.imagen}" alt="${c.alt}"></a>
+        </div>
+    `).join('');
+
+    const dotsHTML = CERTIFICADOS.map((c, i) => `<label data-index="${i}"></label>`).join('');
+
+    container.innerHTML = `
+        <div class="slider-main">
+            <div class="slides-container" id="slides-track" style="width: ${CERTIFICADOS.length * 100}%;">
+                ${slidesHTML}
+            </div>
+        </div>
+        ${CERTIFICADOS.length > 1 ? `<div class="slider-dots">${dotsHTML}</div>` : ''}
+    `;
+
+    const track = container.querySelector('#slides-track');
+    const dots = container.querySelectorAll('.slider-dots label');
+
+    function goTo(i) {
+        track.style.transform = `translateX(-${i * slideWidth}%)`;
+        dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+    }
+
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+    if (dots.length) goTo(0);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    renderProyectos();
+    renderCertificados();
+
     if (history.scrollRestoration) {
         history.scrollRestoration = 'manual';
     }

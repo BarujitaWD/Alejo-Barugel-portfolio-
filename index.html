@@ -62,23 +62,7 @@
                 <h2>Proyectos</h2>
                 <p>A continuación, presento los proyectos más significativos de mi carrera. Cada uno representa un paso adelante en mi dominio de nuevas tecnologías:</p>
                 
-                <a href="elijuegos.html" class="projects-link">
-                    <div class="tech-grid">
-                        <div class="tech-box">
-                            <span class="badge">FullStack</span>
-                            <h3 style="color: #E5E5E5;">Elijuegos</h3>
-                            <p>Blog de noticias, guías y curiosidades del mundo de los videojuegos.</p>
-                            <div class="project-img">
-                                <img src="assets/img/elijuegos-screen-1.png" class="img-pro" alt="Elijuegos">
-                            </div>
-                            <div style="margin-top: 30px;">
-                                <span class="badge">PHP</span> 
-                                <span class="badge">HTML</span> 
-                                <span class="badge">CSS</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                <div id="proyectos-list"></div>
             </section>
 
             <section id="tecnologias" class="card reveal" style="--d: 400ms;">
@@ -128,26 +112,7 @@
             <section id="estudios" class="card reveal" style="--d: 500ms;">
                 <h2>Estudios</h2>
                 <p>Trayectoria Académica y Certificaciones</p>
-                <div class="slider-wrapper">
-                    <input type="radio" name="foto" id="img1" checked>
-                    <input type="radio" name="foto" id="img2">
-
-                    <div class="slider-main">
-                        <div class="slides-container">
-                            <div class="img-title">
-                                <a href="assets/pdf/front-newton.pdf"><img src="assets/img/front.png" alt="Certificado Frontend"></a>
-                            </div>
-                            <div class="img-title">
-                                <a href="assets/pdf/back-newton.pdf"><img src="assets/img/back.png" alt="Certificado Backend"></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="slider-dots">
-                        <label for="img1"></label>
-                        <label for="img2"></label>
-                    </div>
-                </div>
+                <div class="slider-wrapper" id="estudios-slider"></div>
             </section>
 
             <section id="contacto" class="card reveal" style="--d: 600ms;">
@@ -165,6 +130,7 @@
         </div>
     </main>
 
+    <script src="assets/js/data.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 
