@@ -25,7 +25,16 @@ const PROYECTOS = [
     link: "elijuegos.html",
     badgeTipo: "FullStack",
     tecnologias: ["PHP", "HTML", "CSS"]
+  },
+  {
+    titulo: "Mis Tableros",
+    descripcion: "Herramienta para crear tableros personalizados y realizar sorteos de forma fácil y rápida.",
+    imagen: "assets/img/mis_tableros.png",
+    link: "https://tablero-de-sorteo.vercel.app",
+    badgeTipo: "FullStack",
+    tecnologias: ["Java Script", "HTML", "CSS"]
   }
+  
 
   // Ejemplo de cómo agregar otro proyecto (descomentá y completá):
   // ,
