@@ -2,23 +2,25 @@ function renderProyectos() {
     const container = document.getElementById('proyectos-list');
     if (!container || typeof PROYECTOS === 'undefined') return;
 
-    container.innerHTML = PROYECTOS.map(p => `
-        <a href="${p.link}" class="projects-link">
-            <div class="tech-grid">
-                <div class="tech-box">
-                    ${p.badgeTipo ? `<span class="badge">${p.badgeTipo}</span>` : ''}
-                    <h3 style="color: #E5E5E5;">${p.titulo}</h3>
-                    <p>${p.descripcion}</p>
-                    <div class="project-img">
-                        <img src="${p.imagen}" class="img-pro" alt="${p.titulo}">
+    container.innerHTML = `
+        <div class="proyectos-grid">
+            ${PROYECTOS.map(p => `
+                <a href="${p.link}" class="projects-link">
+                    <div class="tech-box">
+                        ${p.badgeTipo ? `<span class="badge">${p.badgeTipo}</span>` : ''}
+                        <h3 style="color: #E5E5E5;">${p.titulo}</h3>
+                        <p>${p.descripcion}</p>
+                        <div class="project-img">
+                            <img src="${p.imagen}" class="img-pro" alt="${p.titulo}">
+                        </div>
+                        <div style="margin-top: 30px;">
+                            ${(p.tecnologias || []).map(t => `<span class="badge">${t}</span>`).join(' ')}
+                        </div>
                     </div>
-                    <div style="margin-top: 30px;">
-                        ${(p.tecnologias || []).map(t => `<span class="badge">${t}</span>`).join(' ')}
-                    </div>
-                </div>
-            </div>
-        </a>
-    `).join('');
+                </a>
+            `).join('')}
+        </div>
+    `;
 }
 
 function renderCertificados() {
