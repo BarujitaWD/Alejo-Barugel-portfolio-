@@ -30,7 +30,7 @@ const PROYECTOS = [
     titulo: "Mis Tableros",
     descripcion: "Herramienta para crear tableros personalizados y realizar sorteos de forma fácil y rápida.",
     imagen: "assets/img/mis_tableros.png",
-    link: "https://tablero-de-sorteo.vercel.app",
+    link: "misTableros.html",
     badgeTipo: "FullStack",
     tecnologias: ["Java Script", "HTML", "CSS"]
   }
