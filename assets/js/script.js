@@ -4,27 +4,36 @@
    galería de imágenes de cada ficha de proyecto.
    images: [{ src, alt, href }]  (href es opcional)
    ============================================================ */
-function initSlider(container, images) {
-    if (!container || !images || images.length === 0) return;
+function initSlider(container, items) {
+    if (!container || !items || items.length === 0) return;
 
-    const slideWidth = 100 / images.length;
+    const slideWidth = 100 / items.length;
 
-    const slidesHTML = images.map(img => {
-        const imageTag = `<img src="${img.src}" alt="${img.alt || ''}">`;
+    const slidesHTML = items.map(item => {
+        if (item.type === 'pdf') {
+            return `
+                <div class="img-title" style="width: ${slideWidth}%;">
+                    <iframe src="${item.src}" class="pdf-preview" title="${item.alt || ''}"></iframe>
+                    ${item.href ? `<a href="${item.href}" target="_blank" class="pdf-open-link">Abrir PDF <i class="fa-solid fa-up-right-from-square"></i></a>` : ''}
+                </div>
+            `;
+        }
+
+        const imageTag = `<img src="${item.src}" alt="${item.alt || ''}">`;
         return `
             <div class="img-title" style="width: ${slideWidth}%;">
-                ${img.href ? `<a href="${img.href}" target="_blank">${imageTag}</a>` : imageTag}
+                ${item.href ? `<a href="${item.href}" target="_blank">${imageTag}</a>` : imageTag}
             </div>
         `;
     }).join('');
 
-    const dotsHTML = images.length > 1
-        ? `<div class="slider-dots">${images.map((_, i) => `<label data-index="${i}"></label>`).join('')}</div>`
+    const dotsHTML = items.length > 1
+        ? `<div class="slider-dots">${items.map((_, i) => `<label data-index="${i}"></label>`).join('')}</div>`
         : '';
 
     container.innerHTML = `
         <div class="slider-main">
-            <div class="slides-container" style="width: ${images.length * 100}%;">
+            <div class="slides-container" style="width: ${items.length * 100}%;">
                 ${slidesHTML}
             </div>
         </div>
@@ -40,7 +49,7 @@ function initSlider(container, images) {
     }
 
     dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
-    if (images.length) goTo(0);
+    if (items.length) goTo(0);
 }
 
 /* ============================================================
@@ -78,11 +87,12 @@ function renderCertificados() {
     const container = document.getElementById('estudios-slider');
     if (!container || typeof CERTIFICADOS === 'undefined') return;
 
-    initSlider(container, CERTIFICADOS.map(c => ({
-        src: c.imagen,
-        alt: c.alt,
-        href: c.pdf
-    })));
+    initSlider(container, CERTIFICADOS.map(c => {
+        if (c.pdf) {
+            return { type: 'pdf', src: c.pdf, href: c.pdf, alt: c.alt };
+        }
+        return { type: 'image', src: c.imagen, alt: c.alt };
+    }));
 }
 
 /* ============================================================

@@ -102,14 +102,19 @@ const PROYECTOS = [
   // }
 ];
 
+/*
+  Para agregar un CERTIFICADO nuevo, alcanza con dos datos:
+    pdf -> ruta al archivo PDF (se muestra como preview en vivo
+            dentro del slider, no hace falta sacarle captura).
+    alt -> nombre del certificado (para accesibilidad y el
+            título del botón "Abrir PDF").
+*/
 const CERTIFICADOS = [
   {
-    imagen: "assets/img/front.png",
     pdf: "assets/pdf/front-newton.pdf",
     alt: "Certificado Frontend"
   },
   {
-    imagen: "assets/img/back.png",
     pdf: "assets/pdf/back-newton.pdf",
     alt: "Certificado Backend"
   }
@@ -117,7 +122,6 @@ const CERTIFICADOS = [
   // Ejemplo de cómo agregar otro certificado (descomentá y completá):
   // ,
   // {
-  //   imagen: "assets/img/mi-certificado.png",
   //   pdf: "assets/pdf/mi-certificado.pdf",
   //   alt: "Nombre del certificado"
   // }
