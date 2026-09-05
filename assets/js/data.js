@@ -104,10 +104,10 @@ const PROYECTOS = [
 
 /*
   Para agregar un CERTIFICADO nuevo, alcanza con dos datos:
-    pdf -> ruta al archivo PDF (se muestra como preview en vivo
-            dentro del slider, no hace falta sacarle captura).
-    alt -> nombre del certificado (para accesibilidad y el
-            título del botón "Abrir PDF").
+    pdf -> ruta al archivo PDF (se muestra en vivo dentro de un
+            preview dentro del slider, no hace falta captura).
+    alt -> nombre del certificado (accesibilidad y título del
+            botón "Abrir PDF").
 */
 const CERTIFICADOS = [
   {
@@ -117,6 +117,14 @@ const CERTIFICADOS = [
   {
     pdf: "assets/pdf/back-newton.pdf",
     alt: "Certificado Backend"
+  },
+  {
+    pdf: "assets/pdf/python_santander.pdf",
+    alt: "Certificado Python Santander"
+  },
+  {
+    pdf: "assets/pdf/edutec_2026.pdf",
+    alt: "Certificado Hackathon Edutech 2026"
   }
 
   // Ejemplo de cómo agregar otro certificado (descomentá y completá):

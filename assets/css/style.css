@@ -14,10 +14,6 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     background-color: var(--bg-color);
     color: var(--text-primary);
@@ -174,6 +170,25 @@ nav {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     margin-top: 1.5rem;
+    align-items: stretch;
+}
+
+.proyectos-grid .projects-link {
+    display: flex;
+}
+
+.proyectos-grid .tech-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.proyectos-grid .tech-box p {
+    flex-grow: 1;
+}
+
+.proyectos-grid .tech-box > .badge {
+    align-self: flex-start;
 }
 
 .tech-grid {
@@ -291,6 +306,7 @@ input[type="radio"] {
     overflow: hidden;
     aspect-ratio: 4 / 3;
     background: #0c0c0c;
+    position: relative;
 }
 
 .slides-container {
@@ -347,6 +363,37 @@ input[type="radio"] {
     height: 100%;
     object-fit: cover;
 }
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background: rgba(3, 7, 18, 0.75);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.slider-arrow:hover {
+    background: white;
+    color: black;
+}
+
+.slider-arrow-prev {
+    left: 12px;
+}
+
+.slider-arrow-next {
+    right: 12px;
+}
+
 .slider-dots {
     display: flex;
     justify-content: center;
@@ -366,6 +413,52 @@ input[type="radio"] {
 .slider-dots label.active {
     background: #38bdf8;
     transform: scale(1.3);
+}
+
+.certificados-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 1.5rem;
+}
+
+.certificado-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-decoration: none;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1rem;
+    transition: var(--transition-fast);
+    position: relative;
+}
+
+.certificado-item:hover {
+    border-color: #475569;
+    transform: translateY(-3px);
+}
+
+.certificado-item .pdf-preview {
+    aspect-ratio: 4 / 3;
+    height: auto;
+    border-radius: 10px;
+}
+
+.certificado-item span {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.certificado-item .pdf-open-link {
+    position: static;
+    align-self: center;
+}
+
+.ver-todos-btn {
+    margin-top: 1.5rem;
 }
 
 .back-link {
@@ -480,6 +573,10 @@ input[type="radio"] {
     }
 
     .proyectos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .certificados-grid {
         grid-template-columns: 1fr;
     }
 

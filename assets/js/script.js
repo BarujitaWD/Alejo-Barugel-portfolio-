@@ -31,24 +31,40 @@ function initSlider(container, items) {
         ? `<div class="slider-dots">${items.map((_, i) => `<label data-index="${i}"></label>`).join('')}</div>`
         : '';
 
+    const flechasHTML = items.length > 1
+        ? `
+            <button type="button" class="slider-arrow slider-arrow-prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+            <button type="button" class="slider-arrow slider-arrow-next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+        `
+        : '';
+
     container.innerHTML = `
         <div class="slider-main">
             <div class="slides-container" style="width: ${items.length * 100}%;">
                 ${slidesHTML}
             </div>
+            ${flechasHTML}
         </div>
         ${dotsHTML}
     `;
 
     const track = container.querySelector('.slides-container');
     const dots = container.querySelectorAll('.slider-dots label');
+    let indiceActual = 0;
 
     function goTo(i) {
-        track.style.transform = `translateX(-${i * slideWidth}%)`;
-        dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+        indiceActual = (i + items.length) % items.length;
+        track.style.transform = `translateX(-${indiceActual * slideWidth}%)`;
+        dots.forEach((d, idx) => d.classList.toggle('active', idx === indiceActual));
     }
 
     dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+    const prevBtn = container.querySelector('.slider-arrow-prev');
+    const nextBtn = container.querySelector('.slider-arrow-next');
+    if (prevBtn) prevBtn.addEventListener('click', () => goTo(indiceActual - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => goTo(indiceActual + 1));
+
     if (items.length) goTo(0);
 }
 
@@ -87,12 +103,44 @@ function renderCertificados() {
     const container = document.getElementById('estudios-slider');
     if (!container || typeof CERTIFICADOS === 'undefined') return;
 
-    initSlider(container, CERTIFICADOS.map(c => {
-        if (c.pdf) {
-            return { type: 'pdf', src: c.pdf, href: c.pdf, alt: c.alt };
-        }
-        return { type: 'image', src: c.imagen, alt: c.alt };
-    }));
+    const destacados = CERTIFICADOS.slice(0, 3);
+
+    initSlider(container, destacados.map(c => ({
+        type: 'pdf',
+        src: c.pdf,
+        href: c.pdf,
+        alt: c.alt
+    })));
+
+    // Evita duplicar el botón si renderCertificados se llama más de una vez
+    const botonExistente = container.parentElement.querySelector('.ver-todos-btn');
+    if (botonExistente) botonExistente.remove();
+
+    if (CERTIFICADOS.length > 3) {
+        container.insertAdjacentHTML('afterend', `
+            <a href="certificados.html" class="btn-cv ver-todos-btn">Ver todos los certificados <i class="fa-solid fa-arrow-right"></i></a>
+        `);
+    }
+}
+
+/* ============================================================
+   PÁGINA "TODOS LOS CERTIFICADOS" (certificados.html)
+   ============================================================ */
+function renderCertificadosCompletos() {
+    const container = document.getElementById('certificados-list');
+    if (!container || typeof CERTIFICADOS === 'undefined') return;
+
+    container.innerHTML = `
+        <div class="certificados-grid">
+            ${CERTIFICADOS.map(c => `
+                <div class="certificado-item">
+                    <iframe src="${c.pdf}" class="pdf-preview" title="${c.alt}"></iframe>
+                    <span>${c.alt}</span>
+                    <a href="${c.pdf}" target="_blank" class="pdf-open-link">Abrir PDF <i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            `).join('')}
+        </div>
+    `;
 }
 
 /* ============================================================
@@ -154,10 +202,48 @@ function renderProyectoDetalle() {
     }
 }
 
+/* ============================================================
+   SCROLL SUAVE ANIMADO PARA EL NAV
+   Reemplaza el salto directo por una animación con duración
+   y curva de aceleración propias.
+   ============================================================ */
+function initSmoothNav() {
+    const enlaces = document.querySelectorAll('nav a[href^="#"]');
+
+    function easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    enlaces.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const destino = document.querySelector(link.getAttribute('href'));
+            if (!destino) return;
+
+            e.preventDefault();
+
+            const inicio = window.pageYOffset;
+            const distancia = destino.getBoundingClientRect().top;
+            const duracion = 900; // ms
+            let tiempoInicio = null;
+
+            function paso(timestamp) {
+                if (!tiempoInicio) tiempoInicio = timestamp;
+                const progreso = Math.min((timestamp - tiempoInicio) / duracion, 1);
+                window.scrollTo(0, inicio + distancia * easeInOutCubic(progreso));
+                if (progreso < 1) requestAnimationFrame(paso);
+            }
+
+            requestAnimationFrame(paso);
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     renderProyectos();
     renderCertificados();
+    renderCertificadosCompletos();
     renderProyectoDetalle();
+    initSmoothNav();
 
     if (history.scrollRestoration) {
         history.scrollRestoration = 'manual';
