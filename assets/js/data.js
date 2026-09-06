@@ -83,17 +83,18 @@ const PROYECTOS = [
     id: "rastro-hackaton",
     titulo: "Rastro",
     descripcion: "Plataforma educativa para centralizar la información de los estudiantes y facilitar su seguimiento, mejorando la comunicación entre docentes, directivos y familias.",
-    imagen: "assets/img/mis_tableros/mis_tableros.png",
+    imagen: "assets/img/rastro/rastro_1.png",
     badgeTipo: "FullStack",
-    tecnologias: ["Python","Django","HTML", "CSS", "Claude"],
+    tecnologias: ["Python","Django","HTML", "CSS", "Java Script"],
     github: "https://github.com/AlejoMaxBarugel/rastro",
     web: "https://rastro-app-tau.vercel.app/",
+    certificado: "assets/pdf/edutec_2026.pdf",
     galeria: [
-      "assets/img/mis_tableros/mis_tableros.png",
-      "assets/img/mis_tableros/mis_tableros2.png",
-      "assets/img/mis_tableros/mis_tableros3.png"
+      "assets/img/rastro/rastro_1.png",
+      "assets/img/rastro/rastro_2.png",
+      "assets/img/rastro/rastro_3.png"
     ],
-    descripcion: "Plataforma educativa para centralizar la información de los estudiantes y facilitar su seguimiento, mejorando la comunicación entre docentes, directivos y familias. 6.º puesto — Hackatón EduTech 2026",
+    descripcion: "Plataforma educativa para centralizar la información de los estudiantes y facilitar su seguimiento, mejorando la comunicación entre docentes, directivos y familias.           6.º puesto — Hackatón EduTech 2026",
     
     contexto: "El proyecto surge de la necesidad de centralizar y actualizar la información de los estudiantes, actualmente dispersa entre legajos, cuadernos y registros de la institución. RASTRO propone una plataforma digital que reúne información administrativa, académica y la mirada del docente, facilitando el acceso a datos relevantes para docentes, directivos y familias.",
     

@@ -170,6 +170,7 @@ function renderProyectoDetalle() {
     const botonesHTML = `
         ${proyecto.github ? `<a href="${proyecto.github}" target="_blank" class="btn-cv">Ver Repositorio <i class="fa-brands fa-github"></i></a>` : ''}
         ${proyecto.web ? `<a href="${proyecto.web}" target="_blank" class="btn-cv">Ver Sitio Web <i class="fa-solid fa-arrow-up-right-from-square"></i></a>` : ''}
+        ${proyecto.certificado ? `<a href="${proyecto.certificado}" target="_blank" class="btn-cv">Ver Certificado <i class="fa-solid fa-certificate"></i></a>` : ''}
     `;
 
     const seccionesHTML = [
