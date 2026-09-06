@@ -78,6 +78,29 @@ const PROYECTOS = [
     contexto: "El proyecto surge de la necesidad de digitalizar y simplificar la creación y organización de tableros para rifas y sorteos, reemplazando el uso tradicional de hojas de papel. Mis Tableros permite crear tableros digitales de manera rápida, visual y organizada. Además, el proyecto fue desarrollado como una experiencia para evaluar el uso de Claude como herramienta de programación colaborativa, explorando cómo una inteligencia artificial puede participar en el proceso de desarrollo junto con un programador. La IA se utilizó como apoyo para generar código, proponer soluciones y acelerar el desarrollo, mientras que cada implementación fue revisada y auditada manualmente.",
     rol: "Como desarrollador, dirigí y supervisé todo el proceso de desarrollo de la aplicación. Utilicé Claude como asistente de programación, trabajando de manera colaborativa para implementar las diferentes funcionalidades del proyecto. Mi responsabilidad no se limitó a aceptar el código generado: analicé, probé y audité las soluciones propuestas, detectando errores, realizando correcciones y aplicando las mejoras necesarias para garantizar el correcto funcionamiento de la herramienta. También tomé las decisiones relacionadas con la estructura, funcionalidad y experiencia de usuario.",
     impacto: "El proyecto permitió comprobar de manera práctica el potencial de la programación asistida por inteligencia artificial, demostrando que una IA puede utilizarse como herramienta de apoyo durante diferentes etapas del desarrollo de software. A nivel funcional, Mis Tableros facilita la organización de rifas y sorteos al reemplazar los tableros físicos por una alternativa digital, visual y fácil de administrar. A nivel técnico, el proyecto sirvió como una experiencia práctica para analizar las ventajas y limitaciones de trabajar junto a una IA, manteniendo al desarrollador como responsable de la revisión, validación y calidad final del código."
+  },
+  {
+    id: "rastro-hackaton",
+    titulo: "Rastro",
+    descripcion: "Plataforma educativa para centralizar la información de los estudiantes y facilitar su seguimiento, mejorando la comunicación entre docentes, directivos y familias.",
+    imagen: "assets/img/mis_tableros/mis_tableros.png",
+    badgeTipo: "FullStack",
+    tecnologias: ["Python","Django","HTML", "CSS", "Claude"],
+    github: "https://github.com/AlejoMaxBarugel/rastro",
+    web: "https://rastro-app-tau.vercel.app/",
+    galeria: [
+      "assets/img/mis_tableros/mis_tableros.png",
+      "assets/img/mis_tableros/mis_tableros2.png",
+      "assets/img/mis_tableros/mis_tableros3.png"
+    ],
+    descripcion: "Plataforma educativa para centralizar la información de los estudiantes y facilitar su seguimiento, mejorando la comunicación entre docentes, directivos y familias. 6.º puesto — Hackatón EduTech 2026",
+    
+    contexto: "El proyecto surge de la necesidad de centralizar y actualizar la información de los estudiantes, actualmente dispersa entre legajos, cuadernos y registros de la institución. RASTRO propone una plataforma digital que reúne información administrativa, académica y la mirada del docente, facilitando el acceso a datos relevantes para docentes, directivos y familias.",
+    
+    rol: "Como líder del equipo técnico y líder general del proyecto, dirigí y coordiné el proceso de desarrollo, organizando las tareas y tomando decisiones relacionadas con la solución y su implementación. Además, fui el responsable de presentar y defender el proyecto frente al jurado, comunicando el problema, la solución propuesta y el impacto de RASTRO.",
+    
+    impacto: "El proyecto permitió desarrollar una solución orientada a mejorar el acompañamiento de las trayectorias escolares mediante la centralización de información y una mejor comunicación entre los actores de la comunidad educativa. RASTRO busca que los docentes puedan conocer mejor a sus estudiantes y tomar decisiones educativas basadas en información actualizada, transformando datos dispersos en conocimiento y mejores oportunidades de aprendizaje.",
+  
   }
 
   // Ejemplo de cómo agregar otro proyecto (descomentá y completá):
